@@ -14,5 +14,6 @@
 	</properties>
     <modules>
         <module>server</module>
+		<module>client</module>
     </modules>
 </project>

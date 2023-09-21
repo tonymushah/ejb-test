@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "mg.tonymushah.ejbtest.client.Main",
+            "projectName": "client"
+        },
+        {
+            "type": "java",
             "name": "Debug wildfy",
             "request": "attach",
             "hostName": "localhost",
