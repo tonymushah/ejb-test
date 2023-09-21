@@ -1,0 +1,10 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "wildfly:run",
+            "type": "shell",
+            "command" : ["mvn" , "wildfly:run"]
+        }
+    ]
+}
