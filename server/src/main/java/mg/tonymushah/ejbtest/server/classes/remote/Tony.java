@@ -12,4 +12,9 @@ public class Tony implements People {
         // TODO Auto-generated method stub
         return "Hello world!";
     }
+    
+    @Override
+    public String think() {
+        return "Expert EJB tsika";
+    }
 }

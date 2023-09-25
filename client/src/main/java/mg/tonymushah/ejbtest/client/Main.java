@@ -18,7 +18,10 @@ import jakarta.ejb.embeddable.EJBContainer;
 public class Main {
     public static void main(String[] args) throws NamingException {
         Properties prop = new Properties();
-        prop.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
+        prop.put(
+            Context.INITIAL_CONTEXT_FACTORY, 
+            "org.wildfly.naming.client.WildFlyInitialContextFactory"
+        );
         prop.put(Context.PROVIDER_URL, "http-remoting://127.0.0.1:8080");
         // prop.put("jboss.naming.client.ejb.context", true);
         prop.put(Context.SECURITY_PRINCIPAL, "test");
