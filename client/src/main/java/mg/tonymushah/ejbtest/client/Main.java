@@ -1,19 +1,12 @@
 package mg.tonymushah.ejbtest.client;
 
-import mg.tonymushah.ejbtest.client.interceptor.ClientInterceptor;
-import mg.tonymushah.ejbtest.server.interfaces.remote.People;
-
 import java.util.Properties;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import org.jboss.ejb.client.EJBClientConnection;
-import org.jboss.ejb.client.EJBClientContext;
-
-import jakarta.ejb.EJB;
-import jakarta.ejb.embeddable.EJBContainer;
+import mg.tonymushah.ejbtest.server.interfaces.remote.People;
 
 public class Main {
     public static void main(String[] args) throws NamingException {
@@ -33,6 +26,8 @@ public class Main {
         People tony = (People) context
                 .lookup("ejb:/server-0.0.1-SNAPSHOT/Tony!" + People.class.getName());
         System.out.println(tony.sayHello());
+        System.out.println(tony.think());
+        System.out.println(tony.calculate(4, 2));
         context.close();
     }
 }

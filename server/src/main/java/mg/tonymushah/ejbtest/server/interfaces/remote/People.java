@@ -9,4 +9,5 @@ public interface People {
         return 0;
     }
     String think();
+    void send(String speech);
 }
