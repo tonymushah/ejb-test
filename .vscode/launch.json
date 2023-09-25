@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Main",
             "request": "launch",
+            "mainClass": "mg.tonymushah.ejbtest.client2.Main",
+            "projectName": "client2"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
             "mainClass": "mg.tonymushah.ejbtest.client.Main",
             "projectName": "client"
         },
