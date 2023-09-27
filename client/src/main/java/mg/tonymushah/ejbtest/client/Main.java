@@ -9,6 +9,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import mg.tonymushah.ejbtest.server.interfaces.remote.PeopleWithMemory;
+import mg.tonymushah.ejbtest.server.interfaces.remote.HasMemory;
 import mg.tonymushah.ejbtest.server.interfaces.remote.People;
 
 public class Main {
@@ -52,11 +53,30 @@ public class Main {
         }
     }
 
+    private static void toAkari(Context context) throws NamingException {
+        System.out.println("Main.toAkari()");
+        People akari = (People) context
+                .lookup("ejb:/server-0.0.1-SNAPSHOT/Akari!" + People.class.getName() + "?stateful");
+        System.out.println(akari.sayHello());
+        System.out.println(akari.think());
+        //System.out.println(tomefy.calculate(4, 2));
+        akari.send("Lol");
+        akari.send("Some args");
+        HasMemory akariMemory = (HasMemory) context
+                .lookup("ejb:/server-0.0.1-SNAPSHOT/Akari!" + HasMemory.class.getName() + "?stateful");
+        Map<Date, String> memory = akariMemory.getMemory();
+        System.out.println(String.format("%d", memory.size()));
+        for (Map.Entry<Date,String> memoryEntry : memory.entrySet()) {
+            System.out.println(String.format("%s => %s", memoryEntry.getKey().toString(), memoryEntry.getValue()));
+        }
+    }
+
     public static void main(String[] args) throws NamingException {
         Context context = Main.getContext();
         try {
             Main.toTony(context);
             Main.toTomefy(context);
+            Main.toAkari(context);
         } catch (NamingException e) {
             // TODO: handle exception
             System.out.println("Main.main()");

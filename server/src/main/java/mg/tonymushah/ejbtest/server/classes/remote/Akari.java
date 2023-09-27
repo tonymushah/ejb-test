@@ -11,7 +11,7 @@ import mg.tonymushah.ejbtest.server.interfaces.remote.People;
 @Stateful
 public class Akari implements People, HasMemory {
 
-    private HashMap<Date, String> memory;
+    private HashMap<Date, String> memory = new HashMap<Date, String>();
 
     @Override
     public Map<Date, String> getMemory() {
