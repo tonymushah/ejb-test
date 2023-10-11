@@ -1,8 +1,10 @@
 package mg.tonymushah.ejbtest.server.classes.inputs;
 
+import java.io.Serializable;
+
 import jakarta.persistence.TypedQuery;
 
-public class Pagination {
+public class Pagination implements Serializable {
     private int offset;
     private int limit;
     public Pagination(int offset, int limit) {

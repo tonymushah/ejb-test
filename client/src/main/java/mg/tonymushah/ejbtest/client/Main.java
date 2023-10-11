@@ -2,10 +2,9 @@ package mg.tonymushah.ejbtest.client;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-import java.util.UUID;
-import java.util.stream.Stream;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -81,10 +80,9 @@ public class Main {
         System.out.println("Main.toPeopleQuery()");
         PeopleRepository query = (PeopleRepository) context.lookup("ejb:/server-0.0.1-SNAPSHOT/PeopleQuery!mg.tonymushah.ejbtest.server.interfaces.remote.PeopleRepository?stateful");
         TPeople input = new TPeople("Tony", "Some", new Calendar.Builder().setDate(2006, 4, 6).build().getTime());
-        input.setId(UUID.randomUUID());
         query.save(input);
         System.out.println(String.format("%s %s %s (%s)", input.getId(), input.getNom(), input.getPrenom(), input.getBirthday().toString()));
-        Stream<TPeople> stream = query.get(new Pagination());
+        List<TPeople> stream = query.get(new Pagination());
         stream.forEach(input_ -> {
             System.out.println(String.format("%s %s %s (%s)", input_.getId(), input_.getNom(), input_.getPrenom(), input_.getBirthday().toString()));
         });
