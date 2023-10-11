@@ -1,7 +1,7 @@
 package mg.tonymushah.ejbtest.server.interfaces.remote;
 
+import java.util.List;
 import java.util.UUID;
-import java.util.stream.Stream;
 
 import jakarta.ejb.Remote;
 import mg.tonymushah.ejbtest.server.classes.entities.TPeople;
@@ -12,5 +12,5 @@ public interface PeopleRepository {
     void save(TPeople input);
     TPeople getByID(UUID id);
     void delete(TPeople input);
-    Stream<TPeople> get(Pagination pagination);
+    List<TPeople> get(Pagination pagination);
 }
